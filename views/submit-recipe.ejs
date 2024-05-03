@@ -1,0 +1,109 @@
+<style>
+  .color{
+    color: rgb(234, 236, 238);
+  }
+
+  p{
+    color: rgb(203, 205, 207);;
+  }
+
+  #addIngredientsBtn{
+    color: black;
+    background-color: aliceblue;
+  }
+
+  #addIngredientsBtn:hover{
+    color: rgb(255, 255, 255);
+    background-color: rgb(0, 0, 0); 
+  }
+
+  #submit{
+    color: black;
+    background-color: aliceblue;
+  }
+
+  #submit:hover{
+    color: rgb(255, 255, 255);
+    background-color: rgb(0, 0, 0); 
+  }
+</style>
+
+
+
+<div class="px-4 py-5 my-5 text-center">
+  <h1 class="display-5 fw-bold">Share Your Recipe</h1>
+  <div class="col-lg-6 mx-auto">
+    <p class="lead">Unleash your culinary code: Share your recipes with a global dev community!</p>
+  </div>
+</div>
+
+<div class="row justify-content-center">
+
+  <% if(infoSubmitObj != '') { %> 
+    <div class="col-8 alert alert-success" role="alert">
+   <%= infoSubmitObj %> 
+    </div>
+  <% } %>
+
+  <% if(infoErrorsObj != '') { %>
+    <div class="col-8 alert alert-danger" role="alert">
+      <%= infoErrorsObj[0].message %>
+    </div>
+  <% } %> 
+
+  <div class="col-8">
+
+    <form action="/submit-recipe" method="POST">
+    
+      <div class="row g-3">
+       <div class="color">
+        <div class="col-12">
+          <label for="title" class="form-label">Recipe Title</label>
+          <input type="text" name="title" id="title" class="form-control" required>
+        </div>
+        
+        <div class="col-12 mt-2">
+          <label for="description" class="form-label">Description</label>
+          <textarea name="description" id="description" class="form-control" cols="30" rows="4"></textarea>
+        </div>
+
+        <div class="col-12 mt-2">
+          <label for="ingredients" class="form-label">Ingredients</label><br>
+          <small>Example: Ice</small>
+          <div class="ingredientList">
+            <div class="ingredeintDiv mb-1">
+              <input type="text" name="ingredients" class="form-control">
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 mt-2">
+          <button type="button" class="btn " id="addIngredientsBtn">Add Ingredient</button>
+        </div>
+
+        <div class="col-12 mt-2">
+          <label for="instruction" class="form-label">Instructions</label>
+          <textarea name="instruction" id="instruction" class="form-control" cols="30" rows="4"></textarea>
+        </div>
+
+        <div class="col-12 mt-2">
+          <label for="image">Product Image</label>
+          <input type="file" class="form-control" name="image" accept="image/*">
+        </div>
+
+        <div class="col-12 mt-2">
+          <label for="cooking_time" class="form-label">Cooking time</label>
+          <textarea name="cooking_time" id="cooking_time" class="form-control" cols="30" rows="1"></textarea>
+        </div>
+
+        <div class="col-12 mt-4">
+          <button type="submit" class="btn" id="submit">Submit Recipe</button>
+        </div>
+      </div>
+
+      </div>
+    
+    </form>
+
+  </div>
+</div>

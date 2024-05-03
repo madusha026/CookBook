@@ -1,0 +1,73 @@
+<style>
+    p{
+        color: rgb(203, 205, 207);
+    }
+</style>
+
+
+
+<div class="row flex-lg-row-reverse align-items-center g-5 py-4 mb-4">
+    <div class="col-12 col-lg-6">
+      <img src="/img/Untitled design.jpg" width="800" height="800" class="d-block mx-lg-auto img-fluid" loading="lazy" alt="recipeimg">
+    </div>
+  
+    <div class="col-12 col-lg-6">
+      <h1 class="display-5 fw-bold mb-3">Your one-stop recipe shop..</h1>
+      <p class="lead mb-3">
+        Your one-stop recipe shop: Find easy-to-follow instructions for a variety of delicious dishes, including vegan and vegetarian options, gluten-free meals, and pasta masterpieces.
+      </p>
+  
+      <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-3">
+        <a href="/explore-latest" class="btn btn-primary btn-light btn-lg px-4 me-md-2">Explore Receipes</a>
+      </div>
+  
+    </div>
+  
+  </div>
+
+  <section class="pb-4 pt-4">
+
+    <div class="d-flex mb-2 align-items-center">
+      <h2>Latest Recipes</h2>
+      <a href="/explore-latest" class="ms-auto">View More</a>
+    </div>
+  
+    <div class="row row-cols-lg-4 g-5  g-lg-5 col-30">
+
+      <% if(food != '') { %>
+        <% food.latest.forEach(function(recipe, index){ %>
+        <a href="/recipe/<%= recipe.id %>" class="col text-center category__link">
+          <div class="category__img  shadow">
+            <img src="/uploads/<%= recipe.image %>" alt="<%= recipe.title %>" loading="lazy">
+          </div>
+          <div class="pt-1 lead"><%= recipe.title %></div>
+        </a>
+        <% }) %>
+    <% } else { %>
+      <p>No items found.</p>
+    <% } %>
+       
+    </div>
+
+    
+      
+     
+ 
+  
+  </section>
+
+  <!-- Submit - Start -->
+<section class="px-4 py-5 my-5 text-center">
+    <img src="/img/publish-recipe.png" class="d-block mx-auto mb-4 img-fluid" alt="Publish your recipe for FREE today" width="566" height="208" loading="lazy">
+    <h1 class="display-5 fw-bold">Publish your DELICIOUS recipe for FREE today</h1>
+    <div class="col-lg-6 mx-auto">
+      <p class="lead mb-4">Publish your Recipe in front of thousands of people for free.</p>
+      <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+        <a href="/submit-recipe" class="btn btn-primary btn-light btn-lg">Create Recipe</a>
+      </div>
+    </div>
+  </section>
+   
+  <!-- Submit - End -->
+
+  
